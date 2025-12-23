@@ -38,14 +38,11 @@ class ChirpController extends Controller
             'message' => 'required|string|max:255',
         ]);
 
-        // Create the chirp (no user for now - we'll add auth later)
-        \App\Models\Chirp::create([
-            'message' => $validated['message'],
-            'user_id' => null, // We'll add authentication in lesson 11
-        ]);
+        // Use the authenticated user
+        auth()->user()->chirps()->create($validated);
 
         // Redirect back to the feed
-        return redirect('/')->with('success', 'Chirp created!');
+        return redirect('/')->with('success', 'Your chirp has been posted!');
     }
 
     /**
@@ -59,8 +56,12 @@ class ChirpController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Chirp $chirp)
+    public function edit(Request $request, Chirp $chirp)
     {
+        if ($request->user()->cannot('update', $chirp)) {
+            abort(403);
+        }
+
         return view('chirps.edit', compact('chirp'));
     }
 
@@ -69,6 +70,11 @@ class ChirpController extends Controller
      */
     public function update(Request $request, Chirp $chirp)
     {
+        if ($request->user()->cannot('update', $chirp)) {
+            abort(403);
+        }
+
+
         // Validate
         $validated = $request->validate([
             'message' => 'required|string|max:255',
@@ -83,8 +89,12 @@ class ChirpController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Chirp $chirp)
+    public function destroy(Request $request, Chirp $chirp)
     {
+        if ($request->user()->cannot('delete', $chirp)) {
+            abort(403);
+        }
+
         $chirp->delete();
 
         return redirect('/')->with('success', 'Chirp deleted!');
