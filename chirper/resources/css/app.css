@@ -25,43 +25,43 @@
 /* CHIRPER CUSTOM LARAVEL THEME */
 :root:has(input.theme-controller[value=laravelChirper]:checked),
 [data-theme="laravelChirper"] {
-  color-scheme: light;
+    color-scheme: light;
 
-  /* Canvas + text (neutral / cooler beige balance) */
-  --color-base-50:  #fafafa;  /* almost pure white, very faint gray */
-  --color-base-100: #f7f7f8;  /* neutral canvas */
-  --color-base-200: #ededee;  /* light neutral gray (still contrasty w/ border) */
-  --color-base-300: #e0e1e3;  /* mid gray, cooler but not blue */
-  --color-base-content: #1a1a1c; /* neutral dark, softer than #111113 */
+    /* Canvas + text (neutral / cooler beige balance) */
+    --color-base-50:  #fafafa;  /* almost pure white, very faint gray */
+    --color-base-100: #f7f7f8;  /* neutral canvas */
+    --color-base-200: #ededee;  /* light neutral gray (still contrasty w/ border) */
+    --color-base-300: #e0e1e3;  /* mid gray, cooler but not blue */
+    --color-base-content: #1a1a1c; /* neutral dark, softer than #111113 */
 
-  /* Text tones */
-  --text-12: var(--color-base-content);
-  --text-10: color-mix(in oklab, var(--color-base-content) 64%, transparent);
+    /* Text tones */
+    --text-12: var(--color-base-content);
+    --text-10: color-mix(in oklab, var(--color-base-content) 64%, transparent);
 
-  /* Brand / actions */
-  --color-primary: #5580d2;            /* cooler button blue */
-  --color-primary-content: #ffffff;
-  --color-secondary: #2f3136;          /* neutral charcoal */
-  --color-secondary-content: #ffffff;
-  --link: #5580d2;
-  --link-hover: color-mix(in oklab, #5580d2 80%, black);
+    /* Brand / actions */
+    --color-primary: #5580d2;            /* cooler button blue */
+    --color-primary-content: #ffffff;
+    --color-secondary: #2f3136;          /* neutral charcoal */
+    --color-secondary-content: #ffffff;
+    --link: #5580d2;
+    --link-hover: color-mix(in oklab, #5580d2 80%, black);
 
-  /* Borders / elevation */
-  --border: 1px;
-  --border-color-soft: rgba(0, 0, 0, 0.08); /* slightly stronger for visibility */
+    /* Borders / elevation */
+    --border: 1px;
+    --border-color-soft: rgba(0, 0, 0, 0.08); /* slightly stronger for visibility */
 
-  /* Radii + misc */
-  --radius-xs: 3px;
-  --radius-sm: 5px;
-  --radius-field: 8px;
-  --radius-box: 10px;
+    /* Radii + misc */
+    --radius-xs: 3px;
+    --radius-sm: 5px;
+    --radius-field: 8px;
+    --radius-box: 10px;
 
-  --radius-selector: var(--radius-sm);
-  --radius-field: var(--radius-field);
-  --radius-box: var(--radius-box);
+    --radius-selector: var(--radius-sm);
+    --radius-field: var(--radius-field);
+    --radius-box: var(--radius-box);
 
-  --depth: 1;
-  --noise: 0;
+    --depth: 1;
+    --noise: 0;
 }
 
 /* Page background & base text */
@@ -248,8 +248,7 @@ a.btn-primary:visited {
 }
 
 /* keep ghost text from turning blue on hover */
-a.btn-ghost:hover {
-    color: var(--text-12) !important;
+a.btn-ghost:hover { color: var(--text-12) !important;
 }
 
 /* 2) Auth inputs full width inside cards/labels */
